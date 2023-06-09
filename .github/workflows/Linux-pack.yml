@@ -394,6 +394,8 @@ jobs:
             libqt5widgets5 \
             libqt5gui5 \
             libqt5svg5-dev \
+            tesseract-ocr \
+            libtesseract-dev \
             appstream \
             hicolor-icon-theme \
             fcitx-frontend-qt5 \

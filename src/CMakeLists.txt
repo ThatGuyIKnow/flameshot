@@ -212,6 +212,8 @@ target_link_libraries(
         Qt5::Widgets
         ${QTSINGLEAPPLICATION_LIBRARY}
         QtColorWidgets
+        tesseract
+        leptonica
 
 )
 
