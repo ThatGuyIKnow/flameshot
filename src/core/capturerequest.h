@@ -49,7 +49,7 @@ public:
     void addSaveTask(const QString& path = QString());
     void addPinTask(const QRect& pinWindowGeometry);
     void setInitialSelection(const QRect& selection);
- 
+
 private:
     CaptureMode m_mode;
     uint m_delay;

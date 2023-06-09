@@ -3,14 +3,14 @@
 //
 
 #include "ocrtool.h"
-#include "tesseract_tool.h"
-#include <QPixmap>
-#include <QWidget>
-#include <QPainter>
-#include <tesseract/baseapi.h>
-#include <leptonica/allheaders.h>
 #include "abstractlogger.h"
 #include "flameshotdaemon.h"
+#include "tesseract_tool.h"
+#include <QPainter>
+#include <QPixmap>
+#include <QWidget>
+#include <leptonica/allheaders.h>
+#include <tesseract/baseapi.h>
 
 OCRTool::OCRTool(QObject* parent)
   : AbstractActionTool(parent)
@@ -48,9 +48,9 @@ CaptureTool* OCRTool::copy(QObject* parent)
 
 void OCRTool::pressed(CaptureContext& context)
 {
-    char *outText;
+    char* outText;
 
-    tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
+    tesseract::TessBaseAPI* api = new tesseract::TessBaseAPI();
     // Initialize tesseract-ocr with English, without specifying tessdata path
     if (api->Init(NULL, "eng")) {
         AbstractLogger::info() << "Could not initialize tesseract.";
@@ -60,7 +60,8 @@ void OCRTool::pressed(CaptureContext& context)
     emit requestAction(REQ_CLOSE_GUI);
 
     // Open input image with leptonica library
-    Pix *image = TesseractTool::qImageToPIX(context.selectedScreenshotArea().toImage());
+    Pix* image =
+      TesseractTool::qImageToPIX(context.selectedScreenshotArea().toImage());
     api->SetImage(image);
     // Get OCR result
     outText = api->GetUTF8Text();
@@ -70,4 +71,3 @@ void OCRTool::pressed(CaptureContext& context)
     api->End();
     delete api;
 }
-

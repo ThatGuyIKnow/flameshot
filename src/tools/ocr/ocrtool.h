@@ -5,10 +5,10 @@
 #ifndef FLAMESHOT_OCRTOOL_H
 #define FLAMESHOT_OCRTOOL_H
 
-#include <QObject>
 #include "src/tools/abstractactiontool.h"
-#include <tesseract/baseapi.h>
+#include <QObject>
 #include <leptonica/allheaders.h>
+#include <tesseract/baseapi.h>
 
 class QPixmap;
 class QWidget;
